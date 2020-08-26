@@ -1,0 +1,774 @@
+
+body {
+    background: linear-gradient(to bottom right, #0039d4b3, #1a1a1a);
+    /* background-image: url("images/tableTopBackground.jpg"); */
+}
+
+.onOffButton {
+    position: absolute;
+    /* border: 1px solid black; */
+    box-shadow: 1px 1px 5px 1px #7e7e7e inset;
+    background: linear-gradient(to bottom right, #555, #1a1a1a);
+    top: 0;
+    left: 20%;
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px;
+    color: #888;
+    cursor: pointer;
+}
+
+.onOffButton:hover {
+    color: white;
+    box-shadow: 1px 1px 5px 1px #c0c0c0 inset;
+
+}
+
+.phoneBody {
+    position: absolute;
+    /* border: 2px solid black; */
+    box-shadow: 1px 1px 5px 1px #1f1f1f inset;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 700px;
+    border-radius: 20px;
+    background: linear-gradient(to bottom right, #555, #1a1a1a);
+
+}
+
+/* Phone screen is displayed in relation to the phone body*/
+.phoneScreen {
+    position: absolute;
+    /* border: 1px solid black; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 96%;
+    height: 95%;
+    border-radius: 15px;
+    background: linear-gradient(to bottom right, #444, #0a0a0a);
+    cursor: pointer;
+}
+
+.phoneScreen-active {
+    background-image: url("images/iphoneBackground1.jpg");
+    background-size: cover;    
+}
+
+/* ********* App Wrapper ********* */
+
+.appWrapper {
+    position: absolute;
+    /* border: 1px solid black; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: linear-gradient(to bottom right, #444, #0a0a0a);
+    cursor: pointer;
+}
+
+/* ********* Tabs ********* */
+.appTabsWrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6%;
+    border-radius: 15px 15px 0 0; /* top-left  top-right  bottom-right  bottom-left */
+    background-color: black;
+    border-bottom: 1px solid #444;
+}
+
+.mainWindowTab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 49%;
+    height: calc(100% - 6px);
+    border: 2px solid #444;
+    border-radius: 15px 0 0 0; /* top-left  top-right  bottom-right  bottom-left */
+    text-align: center;
+    color: #888;
+    padding-top: 5px;
+}
+
+.mainWindowTab:hover {
+    color: #c0c0c0;
+    border: 1px solid #c0c0c0;
+    box-shadow: 1px 1px 5px 1px #c0c0c0 inset;
+
+}
+
+.resultsTab {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 49%;
+    height: calc(100% - 11px);
+    border: 2px solid #444;
+    border-radius: 0 15px 0 0; /* top-left  top-right  bottom-right  bottom-left */
+    text-align: center;
+    color: #888;
+    padding-top: 10px;
+
+}
+
+.resultsTab:hover {
+    color: #c0c0c0;
+    border: 1px solid #c0c0c0;
+    box-shadow: 1px 1px 5px 1px #c0c0c0 inset;
+
+}
+
+/* ********* Main Tab wrapper ********* */
+
+.mainTabWrapper {
+    position: absolute;
+    /* border: 1px solid red; */
+    top: 6%;
+    left: 0;
+    width: calc(100% - 1px);
+    height: 94%;
+    border-radius: 0 0 15px 15px;
+    cursor: pointer;
+}
+
+/* ********* Results Tab wrapper ********* */
+
+.resultsTabWrapper {
+    position: absolute;
+    border: 2px solid #444;
+    background-color: black;
+    top: 6%;
+    left: 0;
+    width: calc(100% - 4px);
+    height: 94%;
+    border-radius: 0 0 15px 15px;
+    cursor: pointer;
+}
+
+/* ********* Main Tab Content ********* */
+
+.phoneCanvas {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: calc(100% - 3px);
+    height: 61%; /* height: 88%; will fill the whole screen */
+    border-radius: 0 0 0 0; /* top-left  top-right  bottom-right  bottom-left */
+    background-color: black;
+    border: 2px solid #444;
+}
+
+
+
+.undesiredViewAlert {
+    position: absolute;
+    top: 6%;
+    left: 0;
+    width: calc(100% - 4px);
+    height: 57%; /* height: 88%; will fill the whole screen */
+    border-radius: 0 0 0 0; /* top-left  top-right  bottom-right  bottom-left */
+    background-color: rgba(255, 0, 0, 0.05);
+    border: 2px solid #444;
+    box-shadow: 1px 1px 20px 1px red inset;
+    z-index: 1;
+}
+
+.segmentationCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 4px);
+    height: width; /* height: 88%; will fill the whole screen */
+    border-radius: 0 0 0 0; /* top-left  top-right  bottom-right  bottom-left */
+    /* border: 2px solid red; */
+    z-index: 1;
+    
+}
+/* ********************************** */
+
+/* Heart Segment Wrapper and segments */
+
+.heartSegmentWrapper {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%); /* center horizontally*/
+    width: 200px;
+    height: 200px;
+    /* border: 1px solid red; */
+    z-index: 1;
+}
+
+.segment1to6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 7%;
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid white; */
+    background-color: black;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* .segment1to6:hover {
+    border: 2px solid black;
+
+} */
+
+.segment1 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 57.733px);
+    width: 0; 
+    height: 0; 
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid rgb(66, 66, 250); /* height of triangle*/
+}
+
+.segment1:hover {
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid green; /* height of triangle*/
+}
+
+.segment2 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 57.733px);
+    width: 0; 
+    height: 0; 
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid white; /* height of triangle*/ 
+    transform: rotate(60deg);
+    transform-origin: bottom;
+}
+
+.segment2:hover {
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid green; /* height of triangle*/
+}
+
+.segment3 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 57.733px);
+    width: 0; 
+    height: 0; 
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid rgb(66, 66, 250); /* height of triangle*/ 
+    transform: rotate(120deg);
+    transform-origin: bottom;
+}
+
+.segment3:hover {
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid green; /* height of triangle*/
+}
+
+.segment4 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 57.733px);
+    width: 0; 
+    height: 0; 
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid white; /* height of triangle*/ 
+    transform: rotate(180deg);
+    transform-origin: bottom;
+}
+
+.segment4:hover {
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid green; /* height of triangle*/
+}
+
+.segment5 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 57.733px);
+    width: 0; 
+    height: 0; 
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid rgb(66, 66, 250); /* height of triangle*/ 
+    transform: rotate(240deg);
+    transform-origin: bottom;
+}
+
+.segment5:hover {
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid green; /* height of triangle*/
+}
+
+.segment6 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 57.733px);
+    width: 0; 
+    height: 0; 
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid white; /* height of triangle*/ 
+    transform: rotate(300deg);
+    transform-origin: bottom;
+}
+
+.segment6:hover {
+    border-left: 57.733px solid transparent;
+    border-right: 57.733px solid transparent;
+    border-top: 100px solid green; /* height of triangle*/
+}
+
+/* ********** */
+
+.segment7to12 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: 7%;
+    width: 70%;
+    height: 70%;
+    /* border: 2px solid black; */
+    background-color: black;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* .segment7to12:hover {
+    border: 2px solid black;
+} */
+
+.segment7 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 40.413px);
+    width: 0; 
+    height: 0; 
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid white; /* height of triangle*/
+}
+
+.segment7:hover {
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid green; /* height of triangle*/
+}
+
+.segment8 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 40.413px);
+    width: 0; 
+    height: 0; 
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid lightblue; /* height of triangle*/
+    transform: rotate(60deg);
+    transform-origin: bottom;
+}
+
+.segment8:hover {
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid green; /* height of triangle*/
+}
+
+.segment9 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 40.413px);
+    width: 0; 
+    height: 0; 
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid white; /* height of triangle*/
+    transform: rotate(120deg);
+    transform-origin: bottom;
+}
+
+.segment9:hover {
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid green; /* height of triangle*/
+}
+
+.segment10 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 40.413px);
+    width: 0; 
+    height: 0; 
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid lightblue; /* height of triangle*/
+    transform: rotate(180deg);
+    transform-origin: bottom;
+}
+
+.segment10:hover {
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid green; /* height of triangle*/
+}
+
+.segment11 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 40.413px);
+    width: 0; 
+    height: 0; 
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid white; /* height of triangle*/
+    transform: rotate(240deg);
+    transform-origin: bottom;
+}
+
+.segment11:hover {
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid green; /* height of triangle*/
+}
+
+.segment12 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 40.413px);
+    width: 0; 
+    height: 0; 
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid lightblue; /* height of triangle*/
+    transform: rotate(300deg);
+    transform-origin: bottom;
+}
+
+.segment12:hover {
+    border-left: 40.413px solid transparent;
+    border-right: 40.413px solid transparent;
+    border-top: 70px solid green; /* height of triangle*/
+}
+
+/* ********** */
+
+.segment13to16 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: 7%;
+    width: 45%;
+    height: 45%;
+    /* border: 2px solid black; */
+    background-color: black;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 3;
+}
+
+/* .segment13to16:hover {
+    border: 2px solid black;
+} */
+
+.segment13 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 45px);
+    width: 0; 
+    height: 0; 
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 45px solid blue; /* height of triangle */
+
+}
+/* segment 13 hover is the only one not working...WHY!!!!!????*/
+.segment13:hover {
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 45px solid green; /* height of triangle */
+}
+
+.segment14 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 45px);
+    width: 0; 
+    height: 0; 
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 45px solid white; /* height of triangle */
+    transform: rotate(90deg);
+    transform-origin: bottom;
+}
+
+.segment14:hover {
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 45px solid green; /* height of triangle */
+}
+
+.segment15 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 45px);
+    width: 0; 
+    height: 0; 
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 45px solid blue; /* height of triangle */
+    transform: rotate(180deg);
+    transform-origin: bottom;
+}
+
+.segment15:hover {
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 45px solid green; /* height of triangle */
+}
+
+.segment16 {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 45px);
+    width: 0; 
+    height: 0; 
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 45px solid white; /* height of triangle */
+    transform: rotate(270deg);
+    transform-origin: bottom;
+}
+
+.segment16:hover {
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 45px solid green; /* height of triangle */
+}
+
+/* ********** */
+
+.segment17 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: 7%;
+    width: 25%;
+    height: 25%;
+    /* border: 2px solid black; */
+    background-color: skyblue;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 4;
+}
+
+.segment17:hover {
+    background-color: green;
+}
+
+/* ********************************** */
+
+.ejectionFractionDisplay {
+    position: absolute;
+    top: 1%;
+    left: 2%;
+    width: 50%;
+    height: 30%;
+    background-color: #00000000;
+    /* border: 1px solid red; */
+    color: #b8c500;
+    z-index: 2;
+}
+
+.ejectionFractionBar {
+    position: absolute;
+    top: 34%;
+    left: 45%;
+    width: 30%;
+    height: 3%;
+    /* border: 1px solid yellow; */
+    background: -webkit-linear-gradient(left, red, red, green, red);
+    z-index: 1;
+    border-radius: 2px;
+
+}
+
+.ejectionFractionBarLocation {
+    position: absolute;
+    top: 30%;
+    /* left: 24%; */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #b6b6b6;
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.mainRulerWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7%;
+    height: 58%;
+    /* fits whole screen */
+    /* position: absolute;
+    top: 6%;
+    right: 0;
+    width: 7%;
+    height: calc(94% - 40px); */
+}
+
+.mainRulerMarks {
+    position: relative;
+    border: 0;
+    left: 0;
+    background-color: white;
+    height: 1.5px;
+    width: 70%;
+    z-index: 1;
+    margin-top: 24px;
+    /* fits whole screen */
+    /* position: relative;
+    border: 0;
+    left: 0;
+    background-color: white;
+    height: 1px;
+    width: 70%;
+    z-index: 1;
+    margin-top: 38px; whe the phoneCanvas height: calc(94% - 40px) --> margin-top: 38px; */
+}
+
+.smallRulerWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5.5%;
+    height: 58%
+    /* fits whole screen */
+    /* position: absolute;
+    top: 6%;
+    right: 0;
+    width: 5.5%;
+    height: calc(94% - 40px); */
+}
+
+.smallRulerMarks {
+    position: relative;
+    border: 0;
+    left: 0;
+    background-color: white;
+    height: 1px;
+    width: 50%;
+    z-index: 1;
+    margin: 4.1px;
+
+    /* fits whole screen */
+    /* position: relative;
+    border: 0;
+    left: 0;
+    background-color: white;
+    height: 1px;
+    width: 50%;
+    z-index: 1;
+    margin: 6.8px;  whe the phoneCanvas height: calc(94% - 40px) --> margin-top: 6.8px; */
+}
+
+.toggleSegmentationButton {
+    position: absolute;
+    background-color: black;
+    top: calc(94% + 1px);
+    left: 0;
+    width: calc(100% - 3px);
+    height: calc(6% - 10px);
+    border: 2px solid #444;
+    border-radius: 0 0 15px 15px; /* top-left  top-right  bottom-right  bottom-left */
+    color: #888;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 6px;
+    
+}
+
+.toggleSegmentationButton:hover {
+    box-shadow: 1px 1px 5px 1px #ffffff inset;
+    color: #c0c0c0;
+}
+
+#areaVolumeChart {
+    position: absolute;
+    top: 61.2%;
+    left: 0;
+    width: calc(100% - 3px);
+    height: 32.5%;
+    border: 2px solid #444;
+    background-color: black;
+
+}
+
+#labelForCreateChart {
+    position: absolute;
+    background-color: #00000000;
+    color: #888;
+    font-size: 20px;
+    z-index: 1;
+    top: 77%;
+    left: 13%;
+}
+
+#longStrainChartCanvas {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 32.5%;
+    border-top: 2px solid #444;
+    border-bottom: 2px solid #444;
+
+}
+
+
+.openAppButton {
+    position: absolute;
+    /* background: linear-gradient(to bottom right, #ffffff, #a7a5a5); */
+    background-image: url("images/DyadLogo.PNG");
+    background-size: cover;
+    border-radius: 10px;
+    top: 5%;
+    left: 10%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 1px 1px 20px 1px #0039d4b3 inset;
+    visibility: hidden;
+}
+
+.openAppButton-active {
+    visibility: visible;
+}
+
+.openAppButton:hover {
+    box-shadow: 1px 1px 20px 1px #ffffff inset;
+
+}
